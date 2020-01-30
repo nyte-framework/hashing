@@ -5,14 +5,55 @@ namespace Rebel\Hashing;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Hash the password using the argon2id algorithm.
+ * Hash the password using the argon2i algorithm.
  */
 final class Argon2i extends AbstractHasher implements Hasher
 {
-    use BasicHasher;
+    /** @var array $options The argon2i hasher options. */
+    private array $options = [];
 
     /**
-     * Comput a new bcrypt hash.
+     * Construct a new argon2i hasher.
+     *
+     * @param array $options The argon2i hasher options.
+     *
+     * @return void Returns nothing.
+     */
+    public function __construct(array $options = [])
+    {
+        $this->setOptions($options);
+    }
+
+    /**
+     * Set the argon2i hasher options.
+     *
+     * @param array $options The argon2i hasher options.
+     *
+     * @return \Rebel\Hashing\Hasher Returns the hasher.
+     */
+    public function setOptions(array $options = []): Hasher
+    {
+        $resolver = new OptionsResolver();
+        $this->configureOptions($resolver);
+        $this->options = $resolver->resolve($options);
+        return $this;
+    }
+
+    /**
+     * Verify the password matches the given hash.
+     *
+     * @param string $password The password to check.
+     * @param string $hash     THe hash the password must match.
+     *
+     * @return bool Returns true if the password matches and false if not.
+     */
+    public function verify(string $password, string $hash): bool
+    {
+        return password_verify($password, $hash);
+    }
+
+    /**
+     * Comput a new argon2i hash.
      *
      * @param string $password The password to hash.
      *
@@ -36,7 +77,7 @@ final class Argon2i extends AbstractHasher implements Hasher
     }
 
     /**
-     * Configure the bcrypt hasher options.
+     * Configure the argon2i hasher options.
      *
      * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver The symfony options resolver.
      *
