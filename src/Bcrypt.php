@@ -9,35 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 final class Bcrypt extends AbstractHasher implements Hasher
 {
-    /** @var array $options The bcrypt hasher options. */
-    private array $options = [];
-
-    /**
-     * Construct a new bcrypt hasher.
-     *
-     * @param array $options The bcrypt hasher options.
-     *
-     * @return void Returns nothing.
-     */
-    public function __construct(array $options = [])
-    {
-        $this->setOptions($options);
-    }
-
-    /**
-     * Set the bcrypt hasher options.
-     *
-     * @param array $options The bcrypt hasher options.
-     *
-     * @return \Rebel\Hashing\Hasher Returns the hasher.
-     */
-    public function setOptions(array $options = []): Hasher
-    {
-        $resolver = new OptionsResolver();
-        $this->configureOptions($resolver);
-        $this->options = $resolver->resolve($options);
-        return $this;
-    }
+    use HasherTrait;
 
     /**
      * Comput a new bcrypt hash.
