@@ -43,7 +43,7 @@ trait BasicHasher
      * @param string $password The password to check.
      * @param string $hash     THe hash the password must match.
      *
-     * @return bool Retursn true if the password matches and false if not.
+     * @return bool Returns true if the password matches and false if not.
      */
     public function verify(string $password, string $hash): bool
     {
