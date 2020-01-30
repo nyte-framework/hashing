@@ -9,7 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 final class Bcrypt extends AbstractHasher implements Hasher
 {
-    use HasherTrait;
+    use BasicHasher;
 
     /**
      * Comput a new bcrypt hash.
