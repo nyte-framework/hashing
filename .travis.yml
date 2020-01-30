@@ -1,0 +1,20 @@
+language: php
+php:
+    - 7.4
+    - nightly
+matrix:
+    fast_finish: true
+    allow_failures:
+        - php: nightly
+install:
+    - travis_retry composer self-update
+    - travis_retry composer install --no-interaction --prefer-source --dev
+after_success:
+    - bash <(curl -s https://codecov.io/bash)
+script:
+    - ./vendor/bin/phpunit --coverage-clover=coverage.xml
+    - ./vendor/bin/psalm
+cache:
+    directories:
+        - vendor
+        - $HOME/.cache/composer
