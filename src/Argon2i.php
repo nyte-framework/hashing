@@ -57,7 +57,7 @@ final class Argon2i extends AbstractHasher implements Hasher
      *
      * @param string $password The password to hash.
      *
-     * @return string Returns the hashed password.
+     * @return null|string Returns the hashed password.
      */
     public function compute(string $password): string
     {
