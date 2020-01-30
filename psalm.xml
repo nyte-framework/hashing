@@ -1,4 +1,3 @@
-  
 <?xml version="1.0"?>
 <psalm name="Rebel Hashing Psalm Configuration" useDocblockTypes="true">
     <projectFiles>
