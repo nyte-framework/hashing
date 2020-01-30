@@ -59,7 +59,7 @@ final class Argon2id extends AbstractHasher implements Hasher
      *
      * @return string Returns the hashed password.
      */
-    public function compute(string $password): string
+    public function compute(string $password): ?string
     {
         return password_hash($password, PASSWORD_ARGON2ID, $this->options);
     }
