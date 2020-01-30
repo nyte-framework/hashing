@@ -38,7 +38,7 @@ final class Bcrypt extends AbstractHasher implements Hasher
     /**
      * Configure the bcrypt hasher options.
      *
-     * @param OptionsResolver The symfony options resolver.
+     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver The symfony options resolver.
      *
      * @return void Returns nothing.
      */
