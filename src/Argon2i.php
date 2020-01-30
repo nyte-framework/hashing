@@ -20,7 +20,7 @@ final class Argon2i extends AbstractHasher implements Hasher
      */
     public function compute(string $password): string
     {
-        return password_hash($password, PASSWORD_BCRYPT, $this->options);
+        return password_hash($password, PASSWORD_ARGON2I, $this->options);
     }
 
     /**
@@ -32,7 +32,7 @@ final class Argon2i extends AbstractHasher implements Hasher
      */
     public function needsRehash(string $hash): bool
     {
-        return password_needs_rehash($hash, PASSWORD_BCRYPT, $this->options);
+        return password_needs_rehash($hash, PASSWORD_ARGON2I, $this->options);
     }
 
     /**
