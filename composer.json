@@ -1,0 +1,24 @@
+{
+    "name": "rebel-framework/hashing",
+    "description": "Secure password hashing.",
+    "homepage": "https://github.com/rebel-framework",
+    "keywords": [],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.3",
+        "symfony/options-resolver": "^5.0",
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3",
+        "phpunit/phpunit": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rebel\\Hashing\\": "./src"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "prefer-stable": true
+}
