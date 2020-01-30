@@ -59,7 +59,7 @@ final class Bcrypt extends AbstractHasher implements Hasher
      *
      * @return string Returns the hashed password.
      */
-    public function compute(string $password): string
+    public function compute(string $password): ?string
     {
         return password_hash($password, PASSWORD_BCRYPT, $this->options);
     }
