@@ -1,7 +1,9 @@
 <?php declare(strict_types=1);
 
 namespace Rebel\Hashing;
-    
+
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
 /**
  * Basic hasher methods and variables.
  */
